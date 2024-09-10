@@ -1,0 +1,12 @@
+{
+    "users":[
+        {"username":"admin","password":"admin002"},
+        {"username":"user","password":"user002"}
+
+    ],
+    "category":[
+        {"name":"laptop"},
+        {"name":"mobile"}
+
+    ]
+}

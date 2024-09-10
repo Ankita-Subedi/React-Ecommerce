@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: $general-font;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  ul {
+    list-style: none;
+  }
+  .container {
+    width: 1320px;
+    padding: 0px;
+    margin: 0px auto;
+  }
+  .d-flex{
+    display: flex;
+  }
+
+.j-center{
+  justify-content: center;
+}
+
+.a-center{
+  align-items: center;
+}
+
+.t-center{
+  text-align: center;
+}

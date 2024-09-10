@@ -1,0 +1,36 @@
+.navigation {
+  .container {
+    justify-content: space-between;
+    padding: 8px 0;
+    ul {
+      gap: 52px;
+
+      p {
+        position: relative;
+      }
+      hr {
+        width: 50%;
+        margin: 2px auto;
+        display: none;
+      }
+      .active {
+        hr {
+          display: block;
+        }
+      }
+    }
+
+    .icons {
+      .cart_text {
+        position: absolute;
+        top: 13px;
+        left: 8px;
+        border-radius: 19px;
+        color: white;
+        padding: 0px 4px;
+        background-color: black;
+        font-size: 12px;
+      }
+    }
+  }
+}
