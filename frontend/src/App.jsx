@@ -1,5 +1,6 @@
 import {Routes, Route} from "react-router-dom"
 import Navbar from "./components/frontend/layouts/Navbar"
+import Footer from "./components/frontend/layouts/Footer"
 import Home from "./components/frontend/pages/Home"
 import Collection from "./components/frontend/pages/Collection"
 import About from "./components/frontend/pages/About"
@@ -25,6 +26,7 @@ function App() {
         <Route path="/place-order" element={<PlaceOrder/>}/>
         <Route path="/orders" element={<Orders/>}/>
       </Routes>
+      <Footer/>
     </div>
   )
 }
