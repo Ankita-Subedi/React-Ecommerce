@@ -11,10 +11,13 @@ import Login from "./components/frontend/pages/Login"
 import PlaceOrder from "./components/frontend/pages/PlaceOrder"
 import Orders from "./components/frontend/pages/Orders"
 import SearchBar from "./components/frontend/layouts/SearchBar"
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <ToastContainer/>
       <Navbar/>
       <SearchBar/>
       <Routes>
