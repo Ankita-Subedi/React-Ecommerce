@@ -19,21 +19,21 @@ const ShopContextProvider = (props) => {
       return;
     }
 
-    if(cartData[itemId]){
-        if(cartData[itemId][size]){
-            // Increment the quantity for existing size
-            cartData[itemId][size] += 1;
-        } else {
-            // If size does not exist, set quantity to 1
-            cartData[itemId][size] = 1;
-        }
-    } else {
-        // If item does not exist, create a new object and set size to 1
-        cartData[itemId] = {};
+    if (cartData[itemId]) {
+      if (cartData[itemId][size]) {
+        // Increment the quantity for existing size
+        cartData[itemId][size] += 1;
+      } else {
+        // If size does not exist, set quantity to 1
         cartData[itemId][size] = 1;
-    } 
-    setCartItems(cartData)
-};
+      }
+    } else {
+      // If item does not exist, create a new object and set size to 1
+      cartData[itemId] = {};
+      cartData[itemId][size] = 1;
+    }
+    setCartItems(cartData);
+  };
 
   const getCartCount = () => {
     let totalCount = 0;
@@ -49,6 +49,27 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
+  const updateQuantity = async (itemId, size, quantity) => {
+    let cartData = structuredClone(cartItems);
+    cartData[itemId][size] = quantity;
+    setCartItems(cartData);
+  };
+
+  const getCartAmount = async() => {
+    let totalAmount = 0;
+    for(const items in cartItems){
+      let itemInfo = products.find((product)=> product._id === items);
+      for(const item in cartItems[items]){
+        try{
+          if(cartItems[items][item] > 0){
+            totalAmount += itemInfo * cartItems[items][item];
+          }
+        }
+      }
+    }
+    return totalAmount;
+  }
+
   const value = {
     products,
     currency,
@@ -60,11 +81,12 @@ const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     getCartCount,
+    updateQuantity,
+    getCartAmount,
   };
 
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
   );
-
-}
+};
 export default ShopContextProvider;
